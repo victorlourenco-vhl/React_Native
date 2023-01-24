@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
-import api from "../src/services/api";
-
+import api from "../meuApp/src/services/api"
+import Filme from "./src/components/Filme";
 
 export default function App() {
 
@@ -17,11 +17,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Filmes API</Text>
-      <FlatList
+      <FlatList 
         data={filme}
         renderItem={
-          ({ item }) => <Text></Text>
+          ({ item }) => <Filme nome={item.nome} img={item.foto} 
+          sinopse={item.sinopse}/>
         }
+
       />
     </View>
   )
@@ -34,9 +36,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
-    color: '#ffffff',
+    color: '#ff0606',
     padding: 20,
-    fontSize: 30
+    fontSize: 40
   }
 
 
